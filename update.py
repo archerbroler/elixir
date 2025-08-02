@@ -234,7 +234,7 @@ class UpdateDefs(Thread):
         global hash_file_lock, defs_lock, tags_defs
 
         for idx in idxes:
-            if idx % 1000 == 0: progress('defs: ' + str(idx), tags_defs[0])
+            if idx % 100 == 0: progress('defs: ' + str(idx), tags_defs[0])
 
             with hash_file_lock:
                 hash = db.hash.get(idx)
@@ -302,7 +302,7 @@ class UpdateRefs(Thread):
         global hash_file_lock, defs_lock, refs_lock, tags_refs
 
         for idx in idxes:
-            if idx % 1000 == 0: progress('refs: ' + str(idx), tags_refs[0])
+            if idx % 100 == 0: progress('refs: ' + str(idx), tags_refs[0])
 
             with hash_file_lock:
                 hash = db.hash.get(idx)
@@ -385,7 +385,7 @@ class UpdateDocs(Thread):
         global hash_file_lock, docs_lock, tags_docs
 
         for idx in idxes:
-            if idx % 1000 == 0: progress('docs: ' + str(idx), tags_docs[0])
+            if idx % 100 == 0: progress('docs: ' + str(idx), tags_docs[0])
 
             with hash_file_lock:
                 hash = db.hash.get(idx)
@@ -446,7 +446,7 @@ class UpdateComps(Thread):
         global hash_file_lock, comps_lock, tags_comps
 
         for idx in idxes:
-            if idx % 1000 == 0: progress('comps: ' + str(idx), tags_comps[0])
+            if idx % 100 == 0: progress('comps: ' + str(idx), tags_comps[0])
 
             with hash_file_lock:
                 hash = db.hash.get(idx)
@@ -513,7 +513,7 @@ class UpdateCompsDocs(Thread):
         global hash_file_lock, comps_lock, comps_docs_lock, tags_comps_docs, bindings_idxes
 
         for idx in idxes:
-            if idx % 1000 == 0: progress('comps_docs: ' + str(idx), tags_comps_docs[0])
+            if idx % 100 == 0: progress('comps_docs: ' + str(idx), tags_comps_docs[0])
 
             if not idx in bindings_idxes: # Parse only bindings doc files
                 continue
